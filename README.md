@@ -1,105 +1,30 @@
-# 🎓 Student Dashboard
+# Student Dashboard
 
-**Student Dashboard** is a lightweight PHP MVC application that provides secure student registration, login, and a fully personalized dashboard experience.  
-It features strong backend validation, session hardening, CSRF protection, preference persistence using cookies, and clean separation of concerns through a custom MVC structure.
+Simple PHP MVC app that provides secure student registration/login and a customizable dashboard.
 
-Built with **PHP**, **MySQL**, and **vanilla MVC architecture**, this project is ideal for learning backend security, PHP routing, and MVC patterns.
+## Features
+- Registration and login with server-side validation and hashed passwords
+- CSRF protection, prepared statements, session hardening (idle timeout, fixation protection)
+- Student dashboard with persistent preferences (text size, color scheme, notifications) stored in cookies
+- Session-based page view counter and preference summary
 
----
+## Tech Stack
+- PHP 8+ (built-in server for local dev)
+- MySQL (PDO)
+- Vanilla PHP views (no framework)
 
-## 🚀 Features
+## Setup
+1) Install PHP and MySQL locally.  
+2) Create the database/schema:
+```sh
+mysql -u root -p < database.sql
+```
+3) Update `config.php` with your DB credentials.  
+4) Run locally from the project root:
+```sh
+php -S localhost:8000
+```
+Visit `http://localhost:8000/index.php?route=register` to create an account, then log in.
 
-### 🔐 Authentication & Security
-- Secure registration and login  
-- Password hashing (`password_hash()`)  
-- CSRF tokens on sensitive forms  
-- Prepared statements  
-- Session hardening (ID regeneration, fixation protection, idle timeout)
-
-### 🏠 Student Dashboard
-- Customizable student dashboard  
-- Persistent preferences stored in cookies:
-  - Text size  
-  - Color scheme  
-  - Notifications toggle  
-- Session-based page view counter  
-- Preference summary box  
-
-### 🧱 MVC Architecture
-- Models → data + queries  
-- Controllers → routing + form handling  
-- Views → clean PHP templates  
-- `index.php` → front controller + router  
-
----
-
-# 💻 Tech Stack
-
-## 🖥️ Backend
-PHP 8+, MySQL (PDO), MVC (no framework)
-
-## 🧰 Dev Tools
-VS Code, SQLTools, PHP built-in server
-
----
-
-# 🧠 Architecture Overview
-
-## 🎨 Presentation Layer (Views)
-- `views/register.php`  
-- `views/login.php`  
-- `views/dashboard.php`  
-
-## 🚦 Controllers
-- `RegisterController.php`  
-- `LoginController.php`  
-- `DashboardController.php`  
-
-## 🗄️ Models
-- `User.php`  
-- `Auth.php` (validation + sessions + CSRF)  
-
-## ⚙️ Core System
-- `index.php` — main router  
-- `config.php` — DB config  
-- `lib/CSRF.php` — token utilities  
-- `lib/Session.php` — hardening rules  
-
----
-
-# 🛠️ Setup Instructions
-
-1. **Install PHP & MySQL**
-
-2. **Create the database + schema**
-3. **Configure your database credentials**
-
-In `config.php`:
-4. **Run the PHP development server**
-5. **Access the app**
-
-👉 http://localhost:8000/index.php?route=register
-
----
-
-# 📊 Project Stats
-
-| Metric               | Value                       |
-|----------------------|-----------------------------|
-| Main Language        | PHP                         |
-| Database             | MySQL (PDO)                 |
-| Architecture         | Custom MVC                  |
-| Development Time     | ~1–2 days                   |
-
----
-
-# 📚 Top Languages Used
-
-PHP (90%)  
-SQL (10%)
-
----
-
-# 👥 Author
-
-- **Arshia Salehi** — https://github.com/arshiasalehi
+## VS Code SQLTools
+Preconfigured connection in `.vscode/settings.json` for the local MySQL database (`student_dashboard`).
