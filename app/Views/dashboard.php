@@ -6,11 +6,10 @@
     <title>Student Dashboard</title>
     <style>
         :root {
-            --bg: #f7f7f7;
-            --panel: #ffffff;
+            --bg: <?php echo e($palette['bg']); ?>;
+            --panel: <?php echo e($palette['panel']); ?>;
             --accent: <?php echo e($palette['accent']); ?>;
-            --text: #111827;
-            --border: #e5e7eb;
+            --text: #f1f5f9;
         }
         body {
             font-family: Arial, sans-serif;
@@ -20,23 +19,23 @@
             color: var(--text);
             font-size: <?php echo e($preferences['text_size']); ?>;
         }
-        .container { max-width: 900px; margin: 32px auto; background: var(--panel); padding: 20px; border-radius: 10px; border: 1px solid var(--border); }
-        h1 { margin-top: 0; font-size: 22px; }
-        .row { margin: 10px 0; }
-        .label { font-weight: 600; display: inline-block; width: 190px; }
-        .logout { display: inline-block; margin-top: 16px; color: #b91c1c; text-decoration: none; font-weight: 600; }
-        .form-card { margin-top: 20px; padding: 14px; border-radius: 8px; border: 1px solid var(--border); background: #fcfcfc; }
-        label { display: block; margin: 10px 0 4px; font-weight: 600; }
+        .container { max-width: 900px; margin: 40px auto; background: var(--panel); padding: 24px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        h1 { margin-top: 0; }
+        .row { margin: 12px 0; }
+        .label { font-weight: 600; display: inline-block; width: 180px; }
+        .logout { display: inline-block; margin-top: 16px; color: #fecdd3; text-decoration: none; font-weight: 600; }
+        .form-card { margin-top: 24px; padding: 16px; border-radius: 10px; background: rgba(255,255,255,0.04); }
+        label { display: block; margin: 12px 0 4px; font-weight: 600; }
         select, input[type="radio"] { margin-right: 8px; }
-        select { width: 220px; padding: 8px; border-radius: 6px; border: 1px solid var(--border); background: #fff; color: #111; }
+        select { width: 220px; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); background: rgba(0,0,0,0.25); color: #fff; }
         .radio-group { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-        .button { margin-top: 14px; padding: 10px 12px; background: var(--accent); color: #0b1220; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; }
-        .message { color: #166534; margin-top: 8px; }
-        .errors { color: #b91c1c; margin-top: 8px; }
-        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; margin-top: 14px; }
-        .summary-card { background: #fff; padding: 10px; border-radius: 8px; border: 1px solid var(--border); }
+        .button { margin-top: 16px; padding: 10px 14px; background: var(--accent); color: #0b1220; border: none; border-radius: 8px; font-weight: 700; cursor: pointer; }
+        .message { color: #bbf7d0; margin-top: 8px; }
+        .errors { color: #fecdd3; margin-top: 8px; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 18px; }
+        .summary-card { background: rgba(255,255,255,0.05); padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); }
         .summary-title { font-weight: 700; }
-        .icon-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; background: var(--accent); }
+        .icon-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 8px; vertical-align: middle; }
     </style>
 </head>
 <body>
@@ -95,15 +94,15 @@
 
         <div class="summary">
             <div class="summary-card">
-                <div class="summary-title"><span class="icon-dot"></span>Text Size</div>
+                <div class="summary-title"><span class="icon-dot" style="background: var(--accent);"></span>Text Size</div>
                 <div><?php echo e($preferences['text_size']); ?></div>
             </div>
             <div class="summary-card">
-                <div class="summary-title"><span class="icon-dot"></span>Color Scheme</div>
+                <div class="summary-title"><span class="icon-dot" style="background: var(--accent);"></span>Color Scheme</div>
                 <div><?php echo e(ucfirst($preferences['color_scheme'])); ?></div>
             </div>
             <div class="summary-card">
-                <div class="summary-title"><span class="icon-dot"></span>Notifications</div>
+                <div class="summary-title"><span class="icon-dot" style="background: var(--accent);"></span>Notifications</div>
                 <div><?php echo e($preferences['notifications']); ?></div>
             </div>
         </div>
