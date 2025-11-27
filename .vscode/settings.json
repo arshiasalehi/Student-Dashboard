@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "name": "Student Dashboard (local)",
+            "driver": "MySQL",
+            "server": "127.0.0.1",
+            "port": 3306,
+            "database": "student_dashboard",
+            "username": "root",
+            "password": ""
+        }
+    ]
+}
